@@ -1,75 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accessible Image Gallery</title>
+    <title>Accessible Photo Gallery</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 </head>
-<body onload="initializeGallery()">
+<body>
 
     <header>
-        <h1>My Accessible Photo Gallery</h1>
+        <h1>Thư Viện Ảnh Của Tôi</h1>
+        <p>Khám phá bộ sưu tập hình ảnh độc đáo và dễ tiếp cận.</p>
     </header>
 
     <main>
-        <div id="image">
-            Hover over or focus on an image below to display here.
-        </div>
-
         <section class="gallery">
-            <h2 class="sr-only">Image Preview List</h2>
-
-            <img class="preview" 
-                 alt="A beautiful ocean sunset with warm golden light" 
-                 src="https://picsum.photos/id/10/600/400" 
-                 onmouseover="upDate(this)" 
-                 onmouseleave="unDo()" 
-                 onfocus="upDate(this)" 
-                 onblur="unDo()">
-
-            <img class="preview" 
-                 alt="Deep green forest with sunlight filtering through trees" 
-                 src="https://picsum.photos/id/11/600/400" 
-                 onmouseover="upDate(this)" 
-                 onmouseleave="unDo()" 
-                 onfocus="upDate(this)" 
-                 onblur="unDo()">
-
-            <img class="preview" 
-                 alt="City skyline lit up bright at night" 
-                 src="https://picsum.photos/id/12/600/400" 
-                 onmouseover="upDate(this)" 
-                 onmouseleave="unDo()" 
-                 onfocus="upDate(this)" 
-                 onblur="unDo()">
-
-            <img class="preview" 
-                 alt="Snow-covered mountain peak against a clear sky" 
-                 src="https://picsum.photos/id/13/600/400" 
-                 onmouseover="upDate(this)" 
-                 onmouseleave="unDo()" 
-                 onfocus="upDate(this)" 
-                 onblur="unDo()">
-
-            <img class="preview" 
-                 alt="Tropical beach with turquoise water and white sand" 
-                 src="https://picsum.photos/id/14/600/400" 
-                 onmouseover="upDate(this)" 
-                 onmouseleave="unDo()" 
-                 onfocus="upDate(this)" 
-                 onblur="unDo()">
-
-            <img class="preview" 
-                 alt="Vibrant spring valley full of blooming flowers" 
-                 src="https://picsum.photos/id/15/600/400" 
-                 onmouseover="upDate(this)" 
-                 onmouseleave="unDo()" 
-                 onfocus="upDate(this)" 
-                 onblur="unDo()">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Phong cảnh thiên nhiên núi non hùng vĩ dưới hoàng hôn">
+                <p>Phong cảnh thiên nhiên tuyệt đẹp vào lúc hoàng hôn.</p>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05" alt="Khu rừng xanh mướt với những tia nắng chiếu qua tán cây">
+                <p>Ánh nắng sớm mai rọi xuống khu rừng nguyên sinh.</p>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1426604966848-d7adac902bff" alt="Dòng thác nước chảy xiết qua các mỏm đá rêu phong">
+                <p>Dòng thác cuồn cuộn chảy giữa thiên nhiên hoang dã.</p>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606" alt="Ngọn núi phủ đầy tuyết trắng dưới bầu trời xanh thẳm">
+                <p>Đỉnh núi tuyết phủ trắng xóa trong khung cảnh mùa đông.</p>
+            </div>
         </section>
     </main>
 
+    <footer>
+        <p>&copy; 2026 - Accessible Photo Gallery</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
