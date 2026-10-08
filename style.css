@@ -1,64 +1,94 @@
+/* --- 1. MOBILE-FIRST: Mặc định màn hình nhỏ (Lưới 1 cột) --- */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
     background-color: #f4f4f4;
-    text-align: center;
-}
-
-h1 {
     color: #333;
+    line-height: 1.6;
 }
 
-#image {
-    width: 100%;
-    max-width: 600px;
-    height: 350px;
-    margin: 20px auto;
-    border: 3px solid #333;
-    background-color: #8e8e8e;
-    background-size: cover;
-    background-position: center;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    padding: 10px;
-    box-sizing: border-box;
-    text-shadow: 1px 1px 3px black;
+header, footer {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 15px;
 }
 
-.preview {
-    width: 150px;
-    height: 100px;
-    object-fit: cover;
+.gallery-item {
+    background-color: #ffffff;
     border: 2px solid #ccc;
-    cursor: pointer;
-    transition: transform 0.2s, border-color 0.2s;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.preview:hover, 
-.preview:focus {
-    transform: scale(1.05);
-    border-color: #0056b3;
-    outline: 3px solid #ffbf47;
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+
+/* --- 2. TABLET VIEW: Từ 772px trở lên (Lưới 2 cột) --- */
+@media screen and (min-width: 772px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Bo tròn ảnh ở kích thước từ 772px trở lên */
+    .gallery-item img {
+        border-radius: 50%;
+    }
+
+    /* Phần tử cuối cùng chiếm trọn 2 cột */
+    .gallery-item:last-child {
+        grid-column: span 2;
+    }
+}
+
+
+/* --- 3. DESKTOP VIEW: Từ 992px trở lên --- */
+@media screen and (min-width: 992px) {
+    /* Đưa ảnh về dạng khung vuông bình thường (bỏ bo tròn 50%) */
+    .gallery-item img {
+        border-radius: 0;
+    }
+
+    /* Mỗi phần tử thứ 3 (3, 6, 9...) chiếm trọn 2 cột */
+    .gallery-item:nth-child(3n) {
+        grid-column: span 2;
+    }
+}
+
+
+/* --- 4. GIẢM CHUYỂN ĐỘNG (Reduced Motion) --- */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0s !important;
+        transition-duration: 0s !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/* --- 5. CHẾ ĐỘ TỐI (Dark Mode) --- */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+
+    .gallery-item {
+        background-color: #1e1e1e;
+        border-color: #333333;
+    }
+
+    h1, p {
+        color: #ffffff;
+    }
 }
